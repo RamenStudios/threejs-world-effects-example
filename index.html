@@ -18,7 +18,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js" async crossorigin="anonymous" data-preload-chunks="slam"></script>
     <script src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js" crossorigin="anonymous"></script>
-
+    <script src="https://unpkg.com/@cortex-js/compute-engine?module" crossorigin="anonymous"></script>
+    <script type="module">
+      import * as CE from "https://unpkg.com/@cortex-js/compute-engine?module";
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+      import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
+      import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
+      import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+      import { Line2 } from 'three/addons/lines/Line2.js';
+      import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+    
+      window.CE = {...CE};
+      window.THREE = { ...THREE };
+      window.THREE.GLTFLoader = GLTFLoader;
+      window.THREE.ParametricGeometry = ParametricGeometry;
+      window.THREE.LineGeometry = LineGeometry;
+      window.THREE.LineMaterial = LineMaterial;
+      window.THREE.Line2 = Line2;
+      window.THREE.CSS2DRenderer = CSS2DRenderer;
+      window.THREE.CSS2DObject = CSS2DObject;
+    </script>
     <link rel="stylesheet" href="src/index.css">
   </head>
   <body>
