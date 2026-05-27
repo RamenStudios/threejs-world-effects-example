@@ -24,13 +24,14 @@
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/"
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/",
+          "compute-engine": "https://esm.run/@cortex-js/compute-engine"
         }
       }
     </script>
     
     <script type="module">
-      import * as CE from "https://unpkg.com/@cortex-js/compute-engine?module";
+      import * as CE from 'compute-engine';
       import * as THREE from 'three';
       import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
       import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
@@ -51,6 +52,7 @@
     </script>
     <link rel="stylesheet" href="src/index.css">
   </head>
+  
   <body>
     <!-- The main canvas used for drawing by the app. -->
     <canvas id="camerafeed"></canvas>
