@@ -24,14 +24,13 @@
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/",
-          "compute-engine": "https://esm.run/@cortex-js/compute-engine"
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/"
         }
       }
     </script>
     
     <script type="module">
-      import * as CE from 'compute-engine';
+      import * as CE from '@cortex-js/compute-engine';
       import * as THREE from 'three';
       import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
       import { ParametricGeometry } from 'three/addons/geometries/ParametricGeometry.js';
