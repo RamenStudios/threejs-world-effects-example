@@ -6,10 +6,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@8thwall/engine-binary": "^1.0.0",
     "@cortex-js/compute-engine": "^0.58.0",
     "three": "^0.183.2"
   },
   "devDependencies": {
+    "@types/dat.gui": "^0.7.13",
+    "dat.gui": "^0.7.9",
     "vite": "^8.0.8"
   }
 }

@@ -1,4 +1,5 @@
 import {edgeTable, triTable} from './marching-cubes-data'
+import * as THREE from 'three';
 
 let size = 30
 let scale = 10

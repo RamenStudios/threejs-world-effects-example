@@ -4,6 +4,7 @@ import {ParseUrl} from './url-parser'
 import {ProcessInputs} from './process-inputs'
 import {UpdateCurve, UpdateFunctionMesh, UpdateVFld, MakeArrow} from './geometry-gen/make-geometry'
 import {BaseComponentGui, GuiCallbacks} from './gui-init'
+import { GUI } from 'dat.gui'
 
 // allows vars to be updated by externalgui callback
 const vars = {
@@ -140,7 +141,7 @@ export const initScenePipelineModule = () => {
     scene.add(lineAxes)
 
     // GUI - allows users to toggle axis visibility
-    const gui = new dat.GUI({width: 250})
+    const gui = new GUI({width: 250})
     gui.domElement.id = 'gui'
 
     const inputvalues = ParseUrl()

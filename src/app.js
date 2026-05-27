@@ -2,6 +2,7 @@
 
 import {initScenePipelineModule} from './threejs-scene-init'
 import * as THREE from 'three';
+import {XR8Promise} from '@8thwall/engine-binary'
 
 window.THREE = THREE
 
@@ -22,7 +23,14 @@ const onxrloaded = () => {
   const canvas = document.getElementById('camerafeed')
   console.log(canvas)
   // Open the camera and start running the camera run loop.
-  XR8.run({canvas})
+  try {
+    XR8.run({canvas})
+  } catch (e) {
+    console.log(`unable to load XR8 ${e}`)
+  }
 }
 
-window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
+console.log(window.XR8)
+XR8Promise.then(() => onxrloaded())
+
+//window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)

@@ -1,5 +1,6 @@
 import {MakeLine, MakeVFld, MakeCurve, MakeSphere, MakeFunctionMesh} from './geometry-gen/make-geometry'
 import * as THREE from 'three'
+import * as CE from '@cortex-js/compute-engine';
 
 const UP = new THREE.Vector3(0, 0, 1)
 /* parentheses shorthand */

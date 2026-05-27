@@ -1,3 +1,5 @@
+import { GUI } from 'dat.gui'
+
 export const BaseComponentGui = (params, gui, mesh, name, vars, callbacks) => {
     const newparam = `show${name.replace(' ', '')}`
     params[newparam] = true  //  new visibility param

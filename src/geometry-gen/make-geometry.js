@@ -1,4 +1,9 @@
 import {MarchingCubes} from './mcubes/marching-cubes'
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
+import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+import { Line2 } from 'three/addons/lines/Line2.js';
 
 /// /////////////////////////////////////////
 ///  NOTE: FOR ALL, YOU MUST SWITCH Y AND Z
@@ -31,7 +36,7 @@ export const MakeLine = (init, vec, isVFld = false) => {
   const linemat = new THREE.LineBasicMaterial({
     color: 0x0000ff,
   })
-  const material = new THREE.LineMaterial({
+  const material = new LineMaterial({
     color: 0x0000ff,
     linewidth: 0.1,
     worldUnits: true,
@@ -50,7 +55,7 @@ export const MakeLine = (init, vec, isVFld = false) => {
   }
 
   const geometry = new THREE.BufferGeometry().setFromPoints(points)
-  const linegeo = new THREE.LineGeometry().fromLine(new THREE.Line(geometry, linemat))
+  const linegeo = new LineGeometry().fromLine(new THREE.Line(geometry, linemat))
   const lineGroup = new THREE.Group()
 
   // if line for a vfld, color var
@@ -62,7 +67,7 @@ export const MakeLine = (init, vec, isVFld = false) => {
     material.color = color
     lineGroup.add(MakeArrow(init, newvec, color))
   }
-  const line = new THREE.Line2(linegeo, material)
+  const line = new Line2(linegeo, material)
   lineGroup.add(line)
   return lineGroup
 }
@@ -184,17 +189,17 @@ export const MakeCurve = (ce, eqs, scale) => {
   const linemat = new THREE.LineBasicMaterial({
     color: 0x0000ff,
   })
-  const material = new THREE.LineMaterial({
+  const material = new LineMaterial({
     color: 0x0000ff,
     linewidth: 0.05,
     worldUnits: true,
   })
 
   const geometry = new THREE.BufferGeometry().setFromPoints(points)
-  const linegeo = new THREE.LineGeometry().fromLine(new THREE.Line(geometry, linemat))
+  const linegeo = new LineGeometry().fromLine(new THREE.Line(geometry, linemat))
   return {
     'point': MakeSphere(new THREE.Vector3(zeropoint.x, zeropoint.y, zeropoint.z)),
-    'mesh': new THREE.Line2(linegeo, material),
+    'mesh': new Line2(linegeo, material),
     'ce': ce,
     'eqs': eqs,
   }
@@ -225,12 +230,12 @@ export const UpdateCurve = (curve, scale) => {
   const linemat = new THREE.LineBasicMaterial({
     color: 0x0000ff,
   })
-  const material = new THREE.LineMaterial({
+  const material = new LineMaterial({
     color: 0x0000ff,
     linewidth: 0.05,
     worldUnits: true,
   })
-  curve.mesh.geometry = new THREE.LineGeometry().fromLine(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), linemat))
+  curve.mesh.geometry = new LineGeometry().fromLine(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), linemat))
 }
 /// /////////////////////////////////////////
 /// END OF SPACE CURVES
